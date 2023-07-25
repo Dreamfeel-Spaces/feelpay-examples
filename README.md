@@ -10,7 +10,9 @@ This is a straightforward JavaScript version of feelpay checkout. Its primary ob
 
 1. Card (Visa, Mastercard),
 2. Mobile (MPESA, Telkom, Airtel Money) and,
-3. feelpay Wallet (coming soon)
+3. feelpay flexi (Buy now, Pay Later, and Save first, Buy Later) - Requires customer have feelpay  account
+4. feelpay C2B - setup in dashboard
+5. feelpay Wallet (coming soon)
 
 # Merchant setup process
 
