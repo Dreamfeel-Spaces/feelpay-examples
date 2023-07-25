@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="dreamfeel-pay-button"></div>
+    <script src="http://feelpay.vercel.app/packages/v1"></script>
+    <script>
+      const orderDetails = {
+        element: "dreamfeel-pay-button",
+        clientId: "YOUR_CLIENT_ID",
+        clientSecret: "YOUR_CLIENT_SECRET",
+        description: "",
+        order: {
+          // Default for one time order checkout.
+          installments: 1,
+          orderCompleteAfterInstallment: 1,
+          vat: 16, // percentage
+          amount: 3000,
+          currency: "KES", //Only KES supported for now
+          // Specify an array of order items.
+          items: [
+            {
+              id: "1",
+              name: "",
+              price: 0,
+              vat: 0,
+              url: ``,
+              image: "",
+            },
+          ],
+        },
+        onSuccess: (detail) => {
+          // Handle success
+          // const {feelPayCheckoutRequestID, feelPayCheckoutStatus, feelPayOrderId, ...} = detail
+          console.log(detail);
+        },
+        onError: (err) => {
+          // Handle error
+          // {message:""}
+          console.log(err);
+        },
+        // Run an action when innitialized!
+        onInit: () => {},
+        // Action when user cancels transaction!
+        onUserCancel: () => {},
+      };
+      const feelPay = new FeelPayWidget(orderDetails);
+      feelPay.init().then((pay) => {
+        console.log(pay);
+      });
+    </script>
+  </body>
+</html>
